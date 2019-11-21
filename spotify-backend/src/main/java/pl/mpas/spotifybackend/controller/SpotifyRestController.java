@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+import pl.mpas.spotifybackend.MyConfig;
 import pl.mpas.spotifybackend.entity.Album;
 import pl.mpas.spotifybackend.entity.PlayList;
 import pl.mpas.spotifybackend.entity.Track;
@@ -17,7 +19,15 @@ public class SpotifyRestController {
 
     private static final Logger logger = LoggerFactory.getLogger(SpotifyRestController.class);
 
-    public List<Album> getAlbumsOfArtis(String artistName) {
+    private MyConfig config;
+    private RestTemplate restTemplate;
+
+    public SpotifyRestController(MyConfig config, RestTemplate restTemplate) {
+        this.config = config;
+        this.restTemplate = restTemplate;
+    }
+
+    public List<Album> getAlbumsOfArtist(String artistName) {
         return Collections.emptyList();
     }
 
