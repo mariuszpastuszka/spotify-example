@@ -1,12 +1,17 @@
 package pl.mpas.spotifybackend.entity;
 
+import org.hibernate.cfg.NotYetImplementedException;
 import pl.mpas.spotifybackend.entity.Track;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Arrays;
-import java.util.List;
 
+@Entity
 public class PlayList {
 
+    @Id
+    private Long id;
     private String playListName;
     private Track[] favorites;
 
@@ -16,6 +21,14 @@ public class PlayList {
     }
 
     public PlayList() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getPlayListName() {
@@ -40,5 +53,10 @@ public class PlayList {
 
     public void setFavorites(Track[] favorites) {
         this.favorites = favorites;
+    }
+
+    public void addTrack(Track track) {
+
+        throw new NotYetImplementedException();
     }
 }
